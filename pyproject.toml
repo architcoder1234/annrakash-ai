@@ -1,0 +1,31 @@
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | build
+  | dist
+  | brain
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "brain",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501", "F401", "F841"]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["test_*.py"]

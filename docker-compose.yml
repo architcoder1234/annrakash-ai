@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: annrakshak_ai_app
+    ports:
+      - "8501:8501"
+    environment:
+      - ANNRAKSHAK_DB_PATH=/app/data/annrakshak.db
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - DEMO_MODE=${DEMO_MODE:-false}
+    volumes:
+      - app_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  app_data:
